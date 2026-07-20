@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tes CDN Supabase</title>
+</head>
+<body style="font-family:sans-serif; padding:24px; background:#1B1D1F; color:white;">
+  <h2>Tes Unduh Library Supabase</h2>
+  <p id="status1">⏳ Mencoba unduh dari jsDelivr...</p>
+  <p id="status2"></p>
+  <p id="status3" style="margin-top:20px;"></p>
+
+  <script>
+    const s1 = document.getElementById('status1');
+    const s2 = document.getElementById('status2');
+    const s3 = document.getElementById('status3');
+
+    function testUnpkg(){
+      s2.textContent = '⏳ Mencoba unduh dari unpkg (cadangan)...';
+      const script2 = document.createElement('script');
+      script2.src = 'https://unpkg.com/@supabase/supabase-js@2.45.4/dist/umd/supabase.js';
+      script2.onload = () => {
+        s2.textContent = '✅ Berhasil dari unpkg!';
+        s3.textContent = typeof supabase !== 'undefined' ? '✅ Object "supabase" tersedia.' : '⚠ Script termuat tapi object supabase tidak ditemukan.';
+      };
+      script2.onerror = () => {
+        s2.textContent = '❌ GAGAL unduh dari unpkg juga.';
+        s3.textContent = '➡ Kesimpulan: jaringan HP ini memblokir kedua CDN. Coba ganti WiFi/paket data lain.';
+      };
+      document.head.appendChild(script2);
+    }
+
+    const script1 = document.createElement('script');
+    script1.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js';
+    script1.onload = () => {
+      s1.textContent = '✅ Berhasil unduh dari jsDelivr!';
+      s3.textContent = typeof supabase !== 'undefined' ? '✅ Object "supabase" tersedia. Semua normal.' : '⚠ Script termuat tapi object supabase tidak ditemukan.';
+    };
+    script1.onerror = () => {
+      s1.textContent = '❌ GAGAL unduh dari jsDelivr.';
+      testUnpkg();
+    };
+    document.head.appendChild(script1);
+  </script>
+</body>
+</html>
