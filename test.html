@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tes Tombol</title>
+</head>
+<body style="font-family:sans-serif; padding:24px; text-align:center; background:#1B1D1F; color:white;">
+  <h2>Halaman Tes</h2>
+  <p>Kalau tombol di bawah berhasil ditekan, akan muncul kotak "Berhasil!"</p>
+  <button id="tombolTes" style="padding:16px 24px; font-size:1.1rem; background:#FF6B35; border:none; border-radius:8px;">Tekan Saya</button>
+  <p id="hasil" style="margin-top:20px; font-size:1.1rem;"></p>
+
+  <script>
+    document.getElementById('tombolTes').addEventListener('click', function(){
+      document.getElementById('hasil').textContent = '✅ Berhasil! JavaScript jalan normal.';
+      alert('Berhasil! JavaScript jalan normal di HP ini.');
+    });
+  </script>
+</body>
+</html>
