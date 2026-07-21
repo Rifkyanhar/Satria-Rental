@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Satria Rental — Panel Leads (Internal)</title>
+<meta name="theme-color" content="#1B1D1F">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" onerror="this.onerror=null; var s=document.createElement('script'); s.src='https://unpkg.com/@supabase/supabase-js@2.45.4/dist/umd/supabase.js'; document.head.appendChild(s);"></script>
+</head>
+<body>
+
+<div id="authScreen" class="auth-screen light-auth">
+  <div class="auth-box">
+    <div class="brand-name" style="text-align:center; margin-bottom:4px;">PANEL LEADS</div>
+    <div class="brand-stripe" style="margin:0 auto 22px;"></div>
+    <p class="hint" style="text-align:center; margin-bottom:18px;">Halaman internal — pantauan calon klien demo Satria Rental. Bukan bagian dari aplikasi operasional staf.</p>
+    <div class="field"><label>Email</label><input id="authEmail" type="email" placeholder="email admin"></div>
+    <div class="field"><label>Password</label><input id="authPassword" type="password" placeholder="Password"></div>
+    <p id="authError" class="auth-error"></p>
+    <button class="btn btn-primary btn-block" onclick="handleLogin()">Masuk</button>
+  </div>
+</div>
+
+<div id="mainApp" style="display:none;">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-name">🎯 PANEL LEADS</span>
+      <span class="brand-stripe"></span>
+    </div>
+    <div style="display:flex; gap:8px;">
+      <button class="icon-btn" id="logoutBtn" title="Keluar">⏻</button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="modalBody"></div>
+  </div>
+</div>
+
+<script src="admin-leads.js"></script>
+</body>
+</html>
